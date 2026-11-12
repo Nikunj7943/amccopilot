@@ -1,0 +1,16 @@
+[
+ {
+  "doctype": "Role",
+  "name": "AMC Owner",
+  "role_name": "AMC Owner",
+  "desk_access": 1,
+  "is_custom": 1
+ },
+ {
+  "doctype": "Role",
+  "name": "AMC Technician",
+  "role_name": "AMC Technician",
+  "desk_access": 1,
+  "is_custom": 1
+ }
+]

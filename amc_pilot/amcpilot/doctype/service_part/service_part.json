@@ -1,0 +1,97 @@
+{
+ "autoname": "field:part_name",
+ "creation": "2026-11-06 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "part_name",
+  "part_type",
+  "is_filter",
+  "default_price",
+  "uom"
+ ],
+ "fields": [
+  {
+   "fieldname": "part_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Part Name",
+   "reqd": 1,
+   "search_index": 1,
+   "unique": 1
+  },
+  {
+   "default": "Other",
+   "fieldname": "part_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Part Type",
+   "options": "Filter\nMembrane\nPump\nAdaptor\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "is_filter",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Is Filter",
+   "read_only": 1
+  },
+  {
+   "fieldname": "default_price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Default Price",
+   "options": "INR"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "label": "UOM"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-06 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "AMCPilot",
+ "name": "Service Part",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AMC Owner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "AMC Technician"
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "part_name,part_type",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "part_name",
+ "track_changes": 1
+}

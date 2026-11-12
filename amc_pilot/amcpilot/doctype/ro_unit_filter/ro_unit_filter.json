@@ -1,0 +1,53 @@
+{
+ "creation": "2026-11-06 10:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "service_part",
+  "change_interval_days",
+  "last_changed_on",
+  "next_due_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "service_part",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Service Part",
+   "options": "Service Part",
+   "reqd": 1
+  },
+  {
+   "fieldname": "change_interval_days",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Change Interval (days)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_changed_on",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Last Changed On"
+  },
+  {
+   "fieldname": "next_due_on",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Next Due On",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-11-06 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "AMCPilot",
+ "name": "RO Unit Filter",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

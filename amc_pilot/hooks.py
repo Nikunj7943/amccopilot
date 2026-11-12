@@ -279,3 +279,21 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+
+# Roles are created from fixtures/role.json on install and on every migrate.
+# (Patches do not run on a fresh install, fixtures do.)
+fixtures = [{"dt": "Role", "filters": [["name", "in", ["AMC Owner", "AMC Technician"]]]}]
+
+# Apps screen icon (v16 desk). Route is the workspace page; see workspace/amcpilot.
+add_to_apps_screen = [
+	{
+		"name": "amc_pilot",
+		"title": "AMCPilot",
+		"logo": "/assets/amc_pilot/images/logo.svg",
+		"route": "/desk/amcpilot",
+		"has_permission": "amc_pilot.amcpilot.services.access.has_app_permission",
+		"sequence_id": 10,
+	}
+]
+
+app_logo_url = "/assets/amc_pilot/images/logo.svg"

@@ -1,0 +1,133 @@
+{
+ "creation": "2026-11-06 10:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "business_name",
+  "owner_name",
+  "owner_mobile",
+  "business_upi_id",
+  "column_break_1",
+  "weekly_off",
+  "default_language",
+  "section_reminders",
+  "renewal_reminder_days",
+  "visit_reminder_days_before",
+  "column_break_2",
+  "default_visit_charge",
+  "require_tds_on_visit"
+ ],
+ "fields": [
+  {
+   "fieldname": "business_name",
+   "fieldtype": "Data",
+   "label": "Business Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "owner_name",
+   "fieldtype": "Data",
+   "label": "Owner Name"
+  },
+  {
+   "fieldname": "owner_mobile",
+   "fieldtype": "Data",
+   "label": "Owner Mobile",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "business_upi_id",
+   "fieldtype": "Data",
+   "label": "Business UPI ID"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Sunday",
+   "fieldname": "weekly_off",
+   "fieldtype": "Select",
+   "label": "Weekly Off",
+   "options": "Monday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday"
+  },
+  {
+   "default": "English",
+   "fieldname": "default_language",
+   "fieldtype": "Select",
+   "label": "Default Language",
+   "options": "English\nGujarati\nHindi"
+  },
+  {
+   "fieldname": "section_reminders",
+   "fieldtype": "Section Break",
+   "label": "Reminders and Visits"
+  },
+  {
+   "default": "30,15,7,0",
+   "description": "Comma-separated days before expiry, e.g. 30,15,7,0",
+   "fieldname": "renewal_reminder_days",
+   "fieldtype": "Data",
+   "label": "Renewal Reminder Days"
+  },
+  {
+   "default": "1",
+   "fieldname": "visit_reminder_days_before",
+   "fieldtype": "Int",
+   "label": "Visit Reminder (days before)"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_visit_charge",
+   "fieldtype": "Currency",
+   "label": "Default Visit Charge",
+   "options": "INR"
+  },
+  {
+   "description": "TDS = Total Dissolved Solids reading of the water",
+   "fieldname": "require_tds_on_visit",
+   "fieldtype": "Check",
+   "label": "Require TDS Reading on Visit"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-06 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "AMCPilot",
+ "name": "AMC Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AMC Owner",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

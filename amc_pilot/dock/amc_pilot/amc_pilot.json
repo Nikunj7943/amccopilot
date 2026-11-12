@@ -1,0 +1,23 @@
+{
+ "app": "amc_pilot",
+ "creation": "2026-11-06 14:07:30.628804",
+ "docstatus": 0,
+ "doctype": "Dock",
+ "idx": 0,
+ "items": [
+  {
+   "added": 0,
+   "hidden": 0,
+   "icon": "droplets",
+   "link_to": "AMCPilot",
+   "link_type": "Sidebar",
+   "title": "AMCPilot"
+  }
+ ],
+ "modified": "2026-11-06 14:07:30.628804",
+ "modified_by": "Administrator",
+ "name": "amc_pilot",
+ "owner": "Administrator",
+ "standard": 1,
+ "user": ""
+}
