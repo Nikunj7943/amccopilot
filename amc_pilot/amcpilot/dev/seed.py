@@ -178,6 +178,10 @@ def _seed_contracts_and_visits(customers):
 			}
 		).insert()
 		activate_contract(contract.name)
+		from amc_pilot.amcpilot.services.payments import create_payment, mark_paid_manually
+
+		payment_name = create_payment(contract.name)
+		mark_paid_manually(payment_name, method="UPI")
 
 		tech = frappe.db.get_value("AMC Technician", {"technician_name": "Demo Technician One"})
 		part = frappe.db.get_value("RO Unit Filter", {"parent": unit}, "service_part")

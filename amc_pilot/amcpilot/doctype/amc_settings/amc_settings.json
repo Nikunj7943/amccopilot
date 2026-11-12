@@ -16,7 +16,10 @@
   "visit_reminder_days_before",
   "column_break_2",
   "default_visit_charge",
-  "require_tds_on_visit"
+  "require_tds_on_visit",
+  "section_payment",
+  "razorpay_key_id",
+  "razorpay_key_secret"
  ],
  "fields": [
   {
@@ -92,6 +95,23 @@
    "fieldname": "require_tds_on_visit",
    "fieldtype": "Check",
    "label": "Require TDS Reading on Visit"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_payment",
+   "fieldtype": "Section Break",
+   "label": "Online Payment (optional)"
+  },
+  {
+   "description": "Leave blank to collect payment manually (UPI link + mark as Paid). Fill both fields to turn on Razorpay checkout.",
+   "fieldname": "razorpay_key_id",
+   "fieldtype": "Data",
+   "label": "Razorpay Key ID"
+  },
+  {
+   "fieldname": "razorpay_key_secret",
+   "fieldtype": "Password",
+   "label": "Razorpay Key Secret"
   }
  ],
  "issingle": 1,

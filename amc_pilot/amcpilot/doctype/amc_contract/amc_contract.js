@@ -24,5 +24,17 @@ frappe.ui.form.on("AMC Contract", {
 				});
 			});
 		}
+		if (frm.doc.payment_status !== "Paid") {
+			frm.add_custom_button(__("Collect Payment"), () => {
+				frappe.call({
+					method: "amc_pilot.amcpilot.services.payments.create_payment",
+					args: { contract: frm.doc.name },
+					freeze: true,
+					callback(r) {
+						frappe.set_route("Form", "AMC Payment", r.message);
+					},
+				});
+			});
+		}
 	},
 });
