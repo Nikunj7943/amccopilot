@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eCustomers and Units\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Customer\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"RO Unit\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eContracts and Visits\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Contract\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Service Visit\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eCatalogue\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"RO Model\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Service Part\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eTeam and Settings\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Technician\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Settings\", \"col\": 3}}]",
+ "content": "[{\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eReminders\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Reminders\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eCustomers and Units\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Customer\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"RO Unit\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eContracts and Visits\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Contract\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Service Visit\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eCatalogue\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"RO Model\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Service Part\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eTeam and Settings\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Technician\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Settings\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Message Template\", \"col\": 3}}]",
  "creation": "2026-11-06 14:06:24.869227",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "label": "AMCPilot",
  "link_type": "DocType",
  "links": [],
- "modified": "2026-11-12 15:28:18.014860",
+ "modified": "2026-11-12 15:33:54.473573",
  "modified_by": "Administrator",
  "module": "AMCPilot",
  "name": "AMCPilot",
@@ -88,6 +88,20 @@
    "doc_view": "",
    "label": "AMC Settings",
    "link_to": "AMC Settings",
+   "type": "DocType"
+  },
+  {
+   "color": "#F97316",
+   "doc_view": "",
+   "label": "Reminders",
+   "link_to": "amcpilot-reminders",
+   "type": "Page"
+  },
+  {
+   "color": "#8B5CF6",
+   "doc_view": "List",
+   "label": "Message Template",
+   "link_to": "Message Template",
    "type": "DocType"
   }
  ],

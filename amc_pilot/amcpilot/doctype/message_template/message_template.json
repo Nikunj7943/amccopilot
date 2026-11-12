@@ -1,0 +1,81 @@
+{
+ "autoname": "format:MSG-{#####}",
+ "creation": "2026-11-12 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "template_type",
+  "language",
+  "message"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Template Type",
+   "options": "Renewal Reminder\nFilter Due Reminder\nVisit Reminder\nPayment Receipt",
+   "reqd": 1
+  },
+  {
+   "default": "English",
+   "fieldname": "language",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Language",
+   "options": "English\nGujarati\nHindi",
+   "reqd": 1
+  },
+  {
+   "description": "Placeholders: {customer_name} {business_name} {owner_mobile} {upi_id} {end_date} {due_date} {amount} {part_name} {days_left}",
+   "fieldname": "message",
+   "fieldtype": "Small Text",
+   "label": "Message",
+   "reqd": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-12 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "AMCPilot",
+ "name": "Message Template",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AMC Owner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "AMC Technician"
+  }
+ ],
+ "search_fields": "template_type,language",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "template_type",
+ "track_changes": 1
+}

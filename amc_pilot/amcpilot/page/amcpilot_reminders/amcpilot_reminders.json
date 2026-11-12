@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "doctype": "Page",
+ "icon": "octicon octicon-megaphone",
+ "idx": 0,
+ "module": "AMCPilot",
+ "name": "amcpilot-reminders",
+ "page_name": "amcpilot-reminders",
+ "roles": [
+  {"role": "AMC Owner"},
+  {"role": "AMC Technician"},
+  {"role": "System Manager"}
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Reminders"
+}

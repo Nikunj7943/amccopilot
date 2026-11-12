@@ -304,3 +304,6 @@ scheduler_events = {
 		"amc_pilot.amcpilot.services.amc_contracts.expire_overdue_contracts",
 	],
 }
+
+after_install = ["amc_pilot.amcpilot.services.reminders.ensure_default_templates"]
+after_migrate = ["amc_pilot.amcpilot.services.reminders.ensure_default_templates"]

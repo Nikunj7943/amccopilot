@@ -52,7 +52,7 @@ def run():
 	settings = frappe.get_single("AMC Settings")
 	if not settings.business_name:
 		settings.update(
-			{"business_name": "Demo RO Care", "owner_name": "Demo Owner", "owner_mobile": "9825033001"}
+			{"business_name": "Demo RO Care", "owner_name": "Demo Owner", "owner_mobile": "9825033001", "business_upi_id": "demorocare@upi"}
 		)
 		settings.save()
 
@@ -124,6 +124,43 @@ def run():
 
 def _seed_contracts_and_visits(customers):
 	from amc_pilot.amcpilot.services.amc_contracts import activate_contract
+
+	# A customer whose AMC renewal is due in 7 days and whose filter is due tomorrow,
+	# so the Reminders page always has something to show.
+	due_customer = frappe.db.get_value("AMC Customer", {"mobile_no": "9825099001"})
+	if not due_customer:
+		due_customer = frappe.get_doc(
+			{
+				"doctype": "AMC Customer",
+				"customer_name": "Due Soon Test",
+				"mobile_no": "9825099001",
+				"area": "Demo Area",
+				"city": "Ahmedabad",
+			}
+		).insert().name
+	model_name = frappe.db.get_value("RO Model", {"brand": "DemoPure", "model_name": "Aqua 7L"})
+	if model_name and not frappe.db.exists("RO Unit", {"customer": due_customer}):
+		unit = frappe.get_doc(
+			{
+				"doctype": "RO Unit",
+				"customer": due_customer,
+				"ro_model": model_name,
+				"install_date": add_days(today(), -1),
+			}
+		).insert()
+		contract = frappe.get_doc(
+			{
+				"doctype": "AMC Contract",
+				"customer": due_customer,
+				"ro_unit": unit.name,
+				"start_date": add_days(today(), -358),
+				"duration_months": 12,
+				"amount": 2400,
+				"visits_included": 2,
+			}
+		).insert()
+		activate_contract(contract.name)
+		frappe.db.set_value("AMC Contract", contract.name, "end_date", add_days(today(), 7))
 
 	# Ramesh (first customer) gets an active, paid AMC contract with one completed visit.
 	unit = frappe.db.get_value("RO Unit", {"customer": customers["9825011001"]}, "name")
