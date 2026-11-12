@@ -114,6 +114,61 @@ def run():
 		if not frappe.db.exists("AMC Technician", {"technician_name": tname}):
 			frappe.get_doc({"doctype": "AMC Technician", "technician_name": tname, "mobile_no": mobile}).insert()
 
+	_seed_contracts_and_visits(customers)
+
 	frappe.db.commit()
 	print("Demo data ready:", {dt: frappe.db.count(dt) for dt in (
-		"Service Part", "RO Model", "AMC Customer", "RO Unit", "AMC Technician")})
+		"Service Part", "RO Model", "AMC Customer", "RO Unit", "AMC Technician",
+		"AMC Contract", "Service Visit")})
+
+
+def _seed_contracts_and_visits(customers):
+	from amc_pilot.amcpilot.services.amc_contracts import activate_contract
+
+	# Ramesh (first customer) gets an active, paid AMC contract with one completed visit.
+	unit = frappe.db.get_value("RO Unit", {"customer": customers["9825011001"]}, "name")
+	if unit and not frappe.db.exists("AMC Contract", {"ro_unit": unit}):
+		contract = frappe.get_doc(
+			{
+				"doctype": "AMC Contract",
+				"customer": customers["9825011001"],
+				"ro_unit": unit,
+				"start_date": add_days(today(), -300),
+				"duration_months": 12,
+				"amount": 2400,
+				"visits_included": 2,
+				"payment_status": "Paid",
+			}
+		).insert()
+		activate_contract(contract.name)
+
+		tech = frappe.db.get_value("AMC Technician", {"technician_name": "Demo Technician One"})
+		part = frappe.db.get_value("RO Unit Filter", {"parent": unit}, "service_part")
+		visit = frappe.get_doc(
+			{
+				"doctype": "Service Visit",
+				"ro_unit": unit,
+				"contract": contract.name,
+				"technician": tech,
+				"visit_type": "Scheduled",
+				"scheduled_date": add_days(today(), -60),
+				"status": "Completed",
+				"completed_on": add_days(today(), -60),
+				"parts_used": [{"service_part": part, "qty": 1, "rate": 0}] if part else [],
+			}
+		).insert()
+
+	# Priya (fifth customer) gets a draft contract, not yet activated, to show that state too.
+	unit2 = frappe.db.get_value("RO Unit", {"customer": customers["9825011005"]}, "name")
+	if unit2 and not frappe.db.exists("AMC Contract", {"ro_unit": unit2}):
+		frappe.get_doc(
+			{
+				"doctype": "AMC Contract",
+				"customer": customers["9825011005"],
+				"ro_unit": unit2,
+				"start_date": today(),
+				"duration_months": 12,
+				"amount": 2200,
+				"visits_included": 2,
+			}
+		).insert()

@@ -30,6 +30,25 @@ def make_customer(name: str = "Test Customer", mobile: str = "9876543210", **kw)
 	).insert()
 
 
+def make_contract(ro_unit, customer, **kw):
+	return frappe.get_doc(
+		{
+			"doctype": "AMC Contract",
+			"customer": customer,
+			"ro_unit": ro_unit,
+			"start_date": "2026-01-01",
+			"duration_months": 12,
+			"amount": 3000,
+			"visits_included": 2,
+			**kw,
+		}
+	).insert()
+
+
+def make_unit_simple(customer, model, **kw):
+	return frappe.get_doc({"doctype": "RO Unit", "customer": customer, "ro_model": model, **kw}).insert()
+
+
 def make_user(email: str, role: str):
 	if frappe.db.exists("User", email):
 		return frappe.get_doc("User", email)

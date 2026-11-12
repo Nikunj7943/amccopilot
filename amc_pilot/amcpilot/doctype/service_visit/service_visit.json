@@ -1,0 +1,209 @@
+{
+ "autoname": "format:VISIT-{#####}",
+ "creation": "2026-11-12 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "ro_unit",
+  "customer",
+  "contract",
+  "technician",
+  "column_break_1",
+  "visit_type",
+  "status",
+  "scheduled_date",
+  "completed_on",
+  "section_readings",
+  "tds_before",
+  "column_break_2",
+  "tds_after",
+  "section_parts",
+  "parts_used",
+  "section_charge",
+  "visit_charge",
+  "covered_by_contract",
+  "column_break_3",
+  "total_amount",
+  "section_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "ro_unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "RO Unit",
+   "options": "RO Unit",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "ro_unit.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "AMC Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "label": "AMC Contract",
+   "options": "AMC Contract"
+  },
+  {
+   "fieldname": "technician",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Technician",
+   "options": "AMC Technician"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Scheduled",
+   "fieldname": "visit_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Visit Type",
+   "options": "Scheduled\nComplaint\nInstallation\nFree"
+  },
+  {
+   "default": "Scheduled",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Scheduled\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "scheduled_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Scheduled Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "completed_on",
+   "fieldtype": "Datetime",
+   "label": "Completed On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_readings",
+   "fieldtype": "Section Break",
+   "label": "Readings"
+  },
+  {
+   "fieldname": "tds_before",
+   "fieldtype": "Int",
+   "label": "TDS Before (ppm)"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tds_after",
+   "fieldtype": "Int",
+   "label": "TDS After (ppm)"
+  },
+  {
+   "fieldname": "section_parts",
+   "fieldtype": "Section Break",
+   "label": "Parts Used"
+  },
+  {
+   "fieldname": "parts_used",
+   "fieldtype": "Table",
+   "label": "Parts Used",
+   "options": "Service Visit Part"
+  },
+  {
+   "fieldname": "section_charge",
+   "fieldtype": "Section Break",
+   "label": "Charge"
+  },
+  {
+   "fieldname": "visit_charge",
+   "fieldtype": "Currency",
+   "label": "Visit Charge",
+   "options": "INR"
+  },
+  {
+   "fieldname": "covered_by_contract",
+   "fieldtype": "Check",
+   "label": "Covered by Contract",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "options": "INR",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-12 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "AMCPilot",
+ "name": "Service Visit",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AMC Owner",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "AMC Technician",
+   "write": 1
+  }
+ ],
+ "search_fields": "ro_unit,customer,technician",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "ro_unit",
+ "track_changes": 1
+}

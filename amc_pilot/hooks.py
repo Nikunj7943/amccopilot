@@ -297,3 +297,10 @@ add_to_apps_screen = [
 ]
 
 app_logo_url = "/assets/amc_pilot/images/logo.svg"
+
+# Daily housekeeping: expire AMC Contracts whose term has passed.
+scheduler_events = {
+	"daily": [
+		"amc_pilot.amcpilot.services.amc_contracts.expire_overdue_contracts",
+	],
+}
