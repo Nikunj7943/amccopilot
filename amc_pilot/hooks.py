@@ -307,3 +307,8 @@ scheduler_events = {
 
 after_install = ["amc_pilot.amcpilot.services.reminders.ensure_default_templates"]
 after_migrate = ["amc_pilot.amcpilot.services.reminders.ensure_default_templates"]
+
+# Guest-facing QR page: /ro/<token> -> amc_pilot/www/ro.html (see www/ro.py).
+website_route_rules = [
+	{"from_route": "/ro/<token>", "to_route": "ro"},
+]

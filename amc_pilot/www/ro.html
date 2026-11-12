@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ business_name or "AMCPilot" }} - {{ brand }} {{ model_name }}</title>
+<style>
+	:root { --accent: #2DA8FF; --accent-dark: #1459E6; --bg: #F5F7FA; --card: #FFFFFF; --text: #1F2937; --muted: #6B7280; --danger: #DC2626; --ok: #16A34A; }
+	* { box-sizing: border-box; }
+	body { margin: 0; font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); }
+	.wrap { max-width: 480px; margin: 0 auto; padding: 20px 16px 48px; }
+	.hero { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #fff; border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+	.hero h1 { margin: 0 0 4px; font-size: 20px; }
+	.hero p { margin: 0; opacity: .9; font-size: 14px; }
+	.card { background: var(--card); border-radius: 14px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+	.card h2 { font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 0 0 10px; }
+	.row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 15px; border-bottom: 1px solid #F0F0F0; }
+	.row:last-child { border-bottom: none; }
+	.badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+	.badge.ok { background: #DCFCE7; color: var(--ok); }
+	.badge.warn { background: #FEF3C7; color: #B45309; }
+	.badge.danger { background: #FEE2E2; color: var(--danger); }
+	.btn { display: block; width: 100%; text-align: center; padding: 14px; border-radius: 12px; border: none;
+		background: var(--accent-dark); color: #fff; font-size: 16px; font-weight: 600; cursor: pointer; }
+	.btn:disabled { background: #9CA3AF; }
+	.muted { color: var(--muted); font-size: 13px; }
+	#msg { margin-top: 10px; text-align: center; font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="hero">
+		<h1>{{ brand }} {{ model_name }}</h1>
+		<p>{{ ro_type or "" }} &middot; {{ customer_name or "" }}</p>
+	</div>
+
+	<div class="card">
+		<h2>AMC Status</h2>
+		<div class="row">
+			<span>Contract</span>
+			{% if contract_active %}
+				<span class="badge ok">Active till {{ contract_end_date }}</span>
+			{% else %}
+				<span class="badge warn">No active AMC</span>
+			{% endif %}
+		</div>
+		<div class="row">
+			<span>Unit Status</span>
+			<span>{{ status }}</span>
+		</div>
+	</div>
+
+	<div class="card">
+		<h2>Filters</h2>
+		{% if filters_due %}
+			{% for f in filters_due %}
+			<div class="row">
+				<span>{{ f.part }}</span>
+				{% if f.next_due_on %}
+					<span class="badge {{ 'danger' if f.overdue else 'ok' }}">
+						{{ "Overdue" if f.overdue else "Due" }} {{ f.next_due_on }}
+					</span>
+				{% else %}
+					<span class="muted">Not scheduled</span>
+				{% endif %}
+			</div>
+			{% endfor %}
+		{% else %}
+			<p class="muted">No filters on record yet.</p>
+		{% endif %}
+	</div>
+
+	<button class="btn" id="request-btn">Request a Service Visit</button>
+	<div id="msg"></div>
+
+	<p class="muted" style="text-align:center; margin-top:20px;">
+		{{ business_name }}{% if owner_mobile %} &middot; {{ owner_mobile }}{% endif %}
+	</p>
+</div>
+
+<script>
+document.getElementById("request-btn").addEventListener("click", async function () {
+	var btn = this, msg = document.getElementById("msg");
+	btn.disabled = true;
+	btn.textContent = "Requesting...";
+	try {
+		var res = await fetch("/api/method/amc_pilot.amcpilot.services.guest_portal.request_service", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ token: "{{ token }}" }),
+		});
+		var data = await res.json();
+		if (res.ok) {
+			msg.textContent = (data.message && data.message.status === "already_requested")
+				? "A visit is already requested for today."
+				: "Request sent! We will call you to confirm.";
+			msg.style.color = "#16A34A";
+			btn.textContent = "Requested";
+		} else {
+			throw new Error((data._server_messages) || "Could not send request");
+		}
+	} catch (e) {
+		msg.textContent = "Could not send the request. Please call us directly.";
+		msg.style.color = "#DC2626";
+		btn.disabled = false;
+		btn.textContent = "Request a Service Visit";
+	}
+});
+</script>
+</body>
+</html>

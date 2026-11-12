@@ -4,7 +4,32 @@ frappe.ui.form.on("RO Unit", {
 	},
 
 	refresh(frm) {
-		if (frm.is_new() || !frm.perm[0] || !frm.perm[0].write) return;
+		if (frm.is_new()) return;
+
+		if (frm.doc.qr_token) {
+			frm.add_custom_button(__("Show QR / Customer Link"), () => {
+				const link = `${window.location.origin}/ro/${frm.doc.qr_token}`;
+				frappe.call({
+					method: "frappe.utils.print_format_generator.get_qr_code",
+					args: { value: link },
+					callback(r) {
+						const dialog = new frappe.ui.Dialog({
+							title: __("Customer QR Code"),
+							fields: [
+								{ fieldtype: "HTML", fieldname: "qr", options: `
+									<div style="text-align:center;">
+										<img src="${r.message}" style="width:220px;height:220px;" />
+										<p><a href="${link}" target="_blank">${link}</a></p>
+									</div>` },
+							],
+						});
+						dialog.show();
+					},
+				});
+			});
+		}
+
+		if (!frm.perm[0] || !frm.perm[0].write) return;
 
 		frm.add_custom_button(__("Reload filters from model"), () => {
 			if (frm.is_dirty()) {
