@@ -9,6 +9,7 @@
   "ro_unit",
   "column_break_1",
   "contract_type",
+  "plan",
   "status",
   "section_term",
   "start_date",
@@ -61,6 +62,13 @@
    "in_standard_filter": 1,
    "label": "Contract Type",
    "options": "AMC\nCMC"
+  },
+  {
+   "description": "Pick a plan to default Duration, Amount and Visits Included. You can still edit all three.",
+   "fieldname": "plan",
+   "fieldtype": "Link",
+   "label": "Plan",
+   "options": "AMC Plan"
   },
   {
    "default": "Draft",

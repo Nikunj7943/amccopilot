@@ -13,7 +13,7 @@
    "label": "Payments Collected"
   }
  ],
- "content": "[{\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eOverview\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"number_card\", \"data\": {\"number_card_name\": \"Active Contracts\", \"col\": 4}}, {\"type\": \"number_card\", \"data\": {\"number_card_name\": \"Customers\", \"col\": 4}}, {\"type\": \"number_card\", \"data\": {\"number_card_name\": \"RO Units Active\", \"col\": 4}}, {\"type\": \"number_card\", \"data\": {\"number_card_name\": \"Payments Pending\", \"col\": 4}}, {\"type\": \"number_card\", \"data\": {\"number_card_name\": \"Visits Scheduled\", \"col\": 4}}, {\"type\": \"number_card\", \"data\": {\"number_card_name\": \"Filters Overdue\", \"col\": 4}}, {\"type\": \"chart\", \"data\": {\"chart_name\": \"Contracts by Status\", \"col\": 6}}, {\"type\": \"chart\", \"data\": {\"chart_name\": \"Visits by Status\", \"col\": 6}}, {\"type\": \"chart\", \"data\": {\"chart_name\": \"Payments Collected\", \"col\": 12}}, {\"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eCustomers and Units\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Customer\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"RO Unit\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eContracts and Visits\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Contract\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Service Visit\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Payment\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eCatalogue\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"RO Model\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Service Part\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eReminders\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Reminders\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Message Template\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eTeam and Settings\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Technician\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Settings\", \"col\": 3}}]",
+ "content": "[{\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eOverview\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"number_card\", \"data\": {\"number_card_name\": \"Active Contracts\", \"col\": 4}}, {\"type\": \"number_card\", \"data\": {\"number_card_name\": \"Customers\", \"col\": 4}}, {\"type\": \"number_card\", \"data\": {\"number_card_name\": \"RO Units Active\", \"col\": 4}}, {\"type\": \"number_card\", \"data\": {\"number_card_name\": \"Payments Pending\", \"col\": 4}}, {\"type\": \"number_card\", \"data\": {\"number_card_name\": \"Visits Scheduled\", \"col\": 4}}, {\"type\": \"number_card\", \"data\": {\"number_card_name\": \"Filters Overdue\", \"col\": 4}}, {\"type\": \"chart\", \"data\": {\"chart_name\": \"Contracts by Status\", \"col\": 6}}, {\"type\": \"chart\", \"data\": {\"chart_name\": \"Visits by Status\", \"col\": 6}}, {\"type\": \"chart\", \"data\": {\"chart_name\": \"Payments Collected\", \"col\": 12}}, {\"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eCustomers and Units\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Customer\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"RO Unit\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eContracts and Visits\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Contract\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Service Visit\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Payment\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eCatalogue\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"RO Model\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Service Part\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Plan\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eReminders\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Reminders\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Message Template\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eReports\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Unbilled and Unpaid\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Parts Due\", \"col\": 3}}, {\"type\": \"header\", \"data\": {\"text\": \"\\u003cspan class=\\\"h4\\\"\\u003eTeam and Settings\\u003c/span\\u003e\", \"col\": 12}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Technician\", \"col\": 3}}, {\"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"AMC Settings\", \"col\": 3}}]",
  "creation": "2026-11-06 14:06:24.869227",
  "custom_blocks": [],
  "docstatus": 0,
@@ -26,7 +26,7 @@
  "label": "AMCPilot",
  "link_type": "DocType",
  "links": [],
- "modified": "2026-11-12 16:24:28.431775",
+ "modified": "2026-11-12 17:06:44.516006",
  "modified_by": "Administrator",
  "module": "AMCPilot",
  "name": "AMCPilot",
@@ -148,6 +148,29 @@
    "label": "AMC Payment",
    "link_to": "AMC Payment",
    "type": "DocType"
+  },
+  {
+   "color": "#9333EA",
+   "doc_view": "List",
+   "label": "AMC Plan",
+   "link_to": "AMC Plan",
+   "type": "DocType"
+  },
+  {
+   "color": "#DC2626",
+   "doc_view": "",
+   "label": "Unbilled and Unpaid",
+   "link_to": "Unbilled and Unpaid",
+   "report_ref_doctype": "Service Visit",
+   "type": "Report"
+  },
+  {
+   "color": "#0891B2",
+   "doc_view": "",
+   "label": "Parts Due",
+   "link_to": "Parts Due",
+   "report_ref_doctype": "RO Unit",
+   "type": "Report"
   }
  ],
  "standard": 1,

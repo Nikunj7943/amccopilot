@@ -44,6 +44,13 @@ UNITS = [
 
 TECHNICIANS = [("Demo Technician One", "9825022001"), ("Demo Technician Two", "9825022002")]
 
+# plan_name, coverage, visits_per_year, price, renewal_price
+PLANS = [
+	("Basic AMC - Labour Only", "Labour Only", 4, 1200, 1400),
+	("Standard AMC - Labour + Filters", "Labour + Filters", 4, 2400, 2800),
+	("Comprehensive AMC", "Comprehensive", 4, 3600, 4200),
+]
+
 
 def run():
 	if not frappe.conf.developer_mode:
@@ -113,6 +120,19 @@ def run():
 	for tname, mobile in TECHNICIANS:
 		if not frappe.db.exists("AMC Technician", {"technician_name": tname}):
 			frappe.get_doc({"doctype": "AMC Technician", "technician_name": tname, "mobile_no": mobile}).insert()
+
+	for plan_name, coverage, visits_per_year, price, renewal_price in PLANS:
+		if not frappe.db.exists("AMC Plan", plan_name):
+			frappe.get_doc(
+				{
+					"doctype": "AMC Plan",
+					"plan_name": plan_name,
+					"coverage": coverage,
+					"visits_per_year": visits_per_year,
+					"price": price,
+					"renewal_price": renewal_price,
+				}
+			).insert()
 
 	_seed_contracts_and_visits(customers)
 
@@ -207,9 +227,41 @@ def _seed_contracts_and_visits(customers):
 				"doctype": "AMC Contract",
 				"customer": customers["9825011005"],
 				"ro_unit": unit2,
+				"plan": "Standard AMC - Labour + Filters",
 				"start_date": today(),
 				"duration_months": 12,
 				"amount": 2200,
 				"visits_included": 2,
+			}
+		).insert()
+
+	# A customer dedicated to showing a Draft contract with a Plan chosen, ready
+	# to Activate by hand - independent of whatever state the other demo
+	# contracts happen to be in after earlier hand-testing.
+	plan_demo_customer = frappe.db.get_value("AMC Customer", {"mobile_no": "9825099003"})
+	if not plan_demo_customer:
+		plan_demo_customer = frappe.get_doc(
+			{
+				"doctype": "AMC Customer",
+				"customer_name": "Plan Demo Test",
+				"mobile_no": "9825099003",
+				"area": "Demo Area",
+				"city": "Ahmedabad",
+			}
+		).insert().name
+	if model_name and not frappe.db.exists("RO Unit", {"customer": plan_demo_customer}):
+		unit3 = frappe.get_doc(
+			{"doctype": "RO Unit", "customer": plan_demo_customer, "ro_model": model_name}
+		).insert()
+		frappe.get_doc(
+			{
+				"doctype": "AMC Contract",
+				"customer": plan_demo_customer,
+				"ro_unit": unit3.name,
+				"plan": "Comprehensive AMC",
+				"start_date": today(),
+				"duration_months": 12,
+				"amount": 3600,
+				"visits_included": 4,
 			}
 		).insert()

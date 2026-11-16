@@ -312,3 +312,11 @@ after_migrate = ["amc_pilot.amcpilot.services.reminders.ensure_default_templates
 website_route_rules = [
 	{"from_route": "/ro/<token>", "to_route": "ro"},
 ]
+
+# Technician isolation on Service Visit (see services/permissions.py).
+permission_query_conditions = {
+	"Service Visit": "amc_pilot.amcpilot.services.permissions.service_visit_query_conditions",
+}
+has_permission = {
+	"Service Visit": "amc_pilot.amcpilot.services.permissions.service_visit_has_permission",
+}

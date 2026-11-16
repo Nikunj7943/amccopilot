@@ -18,12 +18,17 @@
   "column_break_2",
   "tds_after",
   "section_parts",
+  "no_parts_used",
   "parts_used",
   "section_charge",
   "visit_charge",
   "covered_by_contract",
   "column_break_3",
   "total_amount",
+  "total_chargeable",
+  "column_break_billing",
+  "payment_collected",
+  "payment_mode",
   "section_notes",
   "notes"
  ],
@@ -119,6 +124,12 @@
    "label": "Parts Used"
   },
   {
+   "description": "Tick when the visit needed no parts (e.g. a check-up or a free call). A visit cannot be completed with an empty Parts Used table unless this is ticked.",
+   "fieldname": "no_parts_used",
+   "fieldtype": "Check",
+   "label": "No Parts Used"
+  },
+  {
    "fieldname": "parts_used",
    "fieldtype": "Table",
    "label": "Parts Used",
@@ -151,6 +162,32 @@
    "label": "Total Amount",
    "options": "INR",
    "read_only": 1
+  },
+  {
+   "description": "What the customer actually owes for this visit under the contract's coverage. Replaces Total Amount for billing.",
+   "fieldname": "total_chargeable",
+   "fieldtype": "Currency",
+   "label": "Total Chargeable",
+   "options": "INR",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_billing",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Cash/UPI/card collected on the spot during this visit, if any.",
+   "fieldname": "payment_collected",
+   "fieldtype": "Currency",
+   "label": "Payment Collected",
+   "options": "INR"
+  },
+  {
+   "fieldname": "payment_mode",
+   "fieldtype": "Select",
+   "label": "Payment Mode",
+   "options": "\nCash\nUPI\nCard\nOther"
   },
   {
    "fieldname": "section_notes",

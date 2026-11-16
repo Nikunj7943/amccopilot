@@ -80,12 +80,13 @@ def get_renewal_reminders() -> list[dict]:
 	return rows
 
 
-def get_filter_due_reminders() -> list[dict]:
-	"""RO Unit filters whose next_due_on is `visit_reminder_days_before` days away, or overdue."""
-	days_before = cint(frappe.db.get_single_value("AMC Settings", "visit_reminder_days_before")) or 1
-	cutoff = add_days(today(), days_before)
-
-	rows = frappe.db.sql(
+def get_filters_due_within(days: int) -> list[dict]:
+	"""RO Unit filters (on Active units) whose next_due_on is within `days` from today,
+	or already overdue. The one query both the Reminders page and the Parts Due
+	report are built on - change it here, not in either caller.
+	"""
+	cutoff = add_days(today(), days)
+	return frappe.db.sql(
 		"""
 		select ruf.parent as ro_unit, ruf.service_part, ruf.next_due_on,
 			u.customer, c.customer_name, c.mobile_no
@@ -98,7 +99,14 @@ def get_filter_due_reminders() -> list[dict]:
 		(cutoff,),
 		as_dict=True,
 	)
-	return rows
+
+
+def get_filter_due_reminders() -> list[dict]:
+	"""RO Unit filters whose next_due_on is `visit_reminder_days_before` days away, or overdue."""
+	days_before = cint(frappe.db.get_single_value("AMC Settings", "visit_reminder_days_before")) or 1
+	return get_filters_due_within(days_before)
+
+
 
 
 def _fill(message: str, **context) -> str:
